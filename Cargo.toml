@@ -1,0 +1,12 @@
+[package]
+authors = ["Taylor C. Richberger <taywee@gmx.com>"]
+description = "A brace expansion plugin compatible with Bash for nushell"
+repository = "https://github.com/nushell/nushell/tree/main/crates/nu_plugin_bexpand"
+edition = "2021"
+license = "MPL-2.0"
+name = "nu-plugin-bexpand"
+version = "0.1.0"
+
+[dependencies]
+nu-plugin = "0.81.0"
+nu-protocol = { version = "0.81.0", features = ["plugin"] }
