@@ -1,4 +1,3 @@
-# Plugin Example
+# nu-plugin-bexpand
 
-Crate with a simple example of the Plugin trait that needs to be implemented
-in order to create a binary that can be registered into nushell declaration list
+Bash-style brace expansion in nushell.
