@@ -98,7 +98,7 @@ impl Plugin for Bexpand {
             ])
             .usage("Bash-style brace expansion")
             .plugin_examples(vec![PluginExample {
-                example: "'~/config/nushell/{env,config,plugin}.nu | str bexpand".into(),
+                example: "'~/config/nushell/{env,config,plugin}.nu' | str bexpand".into(),
                 description: "Get a list of standard nushell config items".into(),
                 result: None,
             }])

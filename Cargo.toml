@@ -8,7 +8,7 @@ name = "nu-plugin-bexpand"
 categories = ["command-line-interface", "parser-implementations"]
 keywords = ["parser", "shell", "template", "string"]
 readme = "README.md"
-version = "1.0.1"
+version = "1.0.2"
 
 [dependencies]
 bexpand = "1.0.1"
