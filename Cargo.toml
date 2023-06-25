@@ -8,10 +8,10 @@ name = "nu-plugin-bexpand"
 categories = ["command-line-interface", "parser-implementations"]
 keywords = ["parser", "shell", "template", "string"]
 readme = "README.md"
-version = "1.0.3"
+version = "1.1.1"
 
 [dependencies]
-bexpand = "1.0.1"
+bexpand = "1.1.1"
 nu-plugin = "0.81.0"
 nu-protocol = { version = "0.81.0", features = ["plugin"] }
 

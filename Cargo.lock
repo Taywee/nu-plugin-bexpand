@@ -68,9 +68,9 @@ checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
 
 [[package]]
 name = "bexpand"
-version = "1.0.1"
+version = "1.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dcdc5a24260a964540c0cd93a57ba11e41538e1fd075f7d1e391f0c17cf3fab5"
+checksum = "d89e1143a25e14f4f228e2bf4ca065a012efd7c1e5baa3ca70a3e7cbdfbe4e77"
 dependencies = [
  "itertools",
  "nom",
@@ -607,7 +607,7 @@ dependencies = [
 
 [[package]]
 name = "nu-plugin-bexpand"
-version = "1.0.1"
+version = "1.1.1"
 dependencies = [
  "bexpand",
  "nu-plugin",

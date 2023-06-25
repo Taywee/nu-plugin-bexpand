@@ -96,6 +96,7 @@ impl Plugin for Bexpand {
                     Type::List(Box::new(Type::String)),
                 ),
             ])
+            .output_type(Type::List(Box::new(Type::String)))
             .usage("Bash-style brace expansion")
             .plugin_examples(vec![PluginExample {
                 example: "'~/config/nushell/{env,config,plugin}.nu' | str bexpand".into(),
