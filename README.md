@@ -2,6 +2,12 @@
 
 Bash-style brace expansion in nushell.
 
+## Format and Functionality
+
+The format specification and functionality is fully explained in [the bexpand
+crate](https:// github.com/Taywee/bexpand), which implements the parser and
+iterator types independent of nushell.
+
 ## Usage
 
 ```nushell
