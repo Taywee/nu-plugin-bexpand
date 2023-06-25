@@ -1,14 +1,14 @@
 [package]
 authors = ["Taylor C. Richberger <taywee@gmx.com>"]
 description = "A brace expansion plugin compatible with Bash for nushell"
-repository = "https://codeberg.org/Taywee/nu-plugin-bexpand"
+repository = "https://github.com/Taywee/nu-plugin-bexpand"
 edition = "2021"
 license = "MPL-2.0"
 name = "nu-plugin-bexpand"
 categories = ["command-line-interface", "parser-implementations"]
 keywords = ["parser", "shell", "template", "string"]
 readme = "README.md"
-version = "1.0.2"
+version = "1.0.3"
 
 [dependencies]
 bexpand = "1.0.1"
