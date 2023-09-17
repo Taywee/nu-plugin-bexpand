@@ -13,7 +13,6 @@ iterator types independent of nushell.
 ```nushell
 > cargo install nu-plugin-bexpand
 ...
-> help str bexpand
 
 > register ~/.cargo/bin/nu_plugin_bexpand
 
