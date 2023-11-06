@@ -12,8 +12,8 @@ version = "1.2.0"
 
 [dependencies]
 bexpand = "1.2.0"
-nu-plugin = "0.81.0"
-nu-protocol = { version = "0.81.0", features = ["plugin"] }
+nu-plugin = { version = "0.86.1", path = "../nushell/crates/nu-plugin" }
+nu-protocol = { version = "0.86.1", features = ["plugin"], path = "../nushell/crates/nu-protocol" }
 
 [profile.release]
 panic = 'abort'

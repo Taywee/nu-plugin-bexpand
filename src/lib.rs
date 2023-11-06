@@ -7,8 +7,9 @@ use nu_protocol::{Category, PluginExample, PluginSignature, Type, Value};
 pub struct Bexpand;
 
 fn bexpand(call: &EvaluatedCall, input: &Value) -> Result<Value, LabeledError> {
+    let span = input.span();
     let output: Result<Vec<Cow<str>>, _> = match input {
-        Value::String { val, span, .. } => {
+        Value::String { val, .. } => {
             let val = val.as_str();
             let expression: Expression = match val.try_into() {
                 Ok(e) => e,
@@ -16,7 +17,7 @@ fn bexpand(call: &EvaluatedCall, input: &Value) -> Result<Value, LabeledError> {
                     return Err(LabeledError {
                         label: "Brace expression failed to parse".into(),
                         msg: s,
-                        span: Some(*span),
+                        span: Some(span),
                     })
                 }
             };
@@ -27,7 +28,7 @@ fn bexpand(call: &EvaluatedCall, input: &Value) -> Result<Value, LabeledError> {
             let exprs: Result<Vec<_>, _> = vals
                 .into_iter()
                 .map(|val| match val {
-                    Value::String { val, span, .. } => {
+                    Value::String { val, .. } => {
                         let val = val.as_str();
                         let expression: Expression = match val.try_into() {
                             Ok(e) => e,
@@ -35,7 +36,7 @@ fn bexpand(call: &EvaluatedCall, input: &Value) -> Result<Value, LabeledError> {
                                 return Err(LabeledError {
                                     label: "Brace expression failed to parse".into(),
                                     msg: s,
-                                    span: Some(*span),
+                                    span: Some(span),
                                 })
                             }
                         };
@@ -46,7 +47,7 @@ fn bexpand(call: &EvaluatedCall, input: &Value) -> Result<Value, LabeledError> {
                         return Err(LabeledError {
                             label: "Input must be string".into(),
                             msg: format!("Input type was {}", input.get_type()),
-                            span: v.span().ok(),
+                            span: Some(v.span()),
                         })
                     }
                 })
@@ -58,7 +59,7 @@ fn bexpand(call: &EvaluatedCall, input: &Value) -> Result<Value, LabeledError> {
             return Err(LabeledError {
                 label: "Input must be string".into(),
                 msg: format!("Input type was {}", input.get_type()),
-                span: v.span().ok(),
+                span: Some(v.span()),
             })
         }
     };
@@ -66,24 +67,18 @@ fn bexpand(call: &EvaluatedCall, input: &Value) -> Result<Value, LabeledError> {
     let output = match output {
         Ok(o) => o
             .into_iter()
-            .map(|s| Value::String {
-                val: s.into_owned(),
-                span: call.head,
-            })
+            .map(|s| Value::string(s.into_owned(), call.head))
             .collect(),
         Err(e) => {
             return Err(LabeledError {
                 label: "Expression failed to generate".into(),
                 msg: e.to_string(),
-                span: input.span().ok(),
+                span: Some(input.span()),
             })
         }
     };
 
-    Ok(Value::List {
-        vals: output,
-        span: call.head,
-    })
+    Ok(Value::list(output, call.head))
 }
 
 impl Plugin for Bexpand {
@@ -96,7 +91,6 @@ impl Plugin for Bexpand {
                     Type::List(Box::new(Type::String)),
                 ),
             ])
-            .output_type(Type::List(Box::new(Type::String)))
             .usage("Bash-style brace expansion")
             .plugin_examples(vec![PluginExample {
                 example: "'~/config/nushell/{env,config,plugin}.nu' | str bexpand".into(),
