@@ -103,6 +103,7 @@ impl Plugin for Bexpand {
     fn run(
         &mut self,
         name: &str,
+        _: &Option<Value>,
         call: &EvaluatedCall,
         input: &Value,
     ) -> Result<Value, LabeledError> {
