@@ -1,7 +1,7 @@
 [package]
-authors = ["Taylor C. Richberger <taywee@gmx.com>"]
+authors = ["Taylor C. Richberger <taylor@axfive.net>"]
 description = "A brace expansion plugin compatible with Bash for nushell"
-repository = "https://github.com/Taywee/nu-plugin-bexpand"
+repository = "https://forge.axfive.net/Taylor/nu-plugin-bexpand"
 edition = "2021"
 license = "MPL-2.0"
 name = "nu-plugin-bexpand"
