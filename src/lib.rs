@@ -135,7 +135,7 @@ impl SimplePluginCommand for Bexpand {
                     Type::List(Box::new(Type::String)),
                 ),
             ])
-            .usage("Bash-style brace expansion")
+            .description("Bash-style brace expansion")
             .category(Category::Strings)
     }
 
@@ -154,7 +154,7 @@ impl SimplePluginCommand for Bexpand {
         "str bexpand"
     }
 
-    fn usage(&self) -> &str {
+    fn description(&self) -> &str {
         "Does bash-style brace expansion"
     }
     fn examples(&self) -> Vec<Example> {
